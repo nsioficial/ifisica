@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- AJUSTAR A PÁGINA A DIFERENTES TAMANHOS DE TELA -->
+	<title>iFísica | Força Elástica</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="../css/material.min.css"> <!-- CSS DO MATERIAL UI -->
+	<link rel="stylesheet" href="../css/bootstrap.min.css"> <!-- CSS DO BOOTSTRAP -->
+	<link rel="stylesheet" href="../css/dialog-polyfill.css"> <!-- CSS DO DIALOG POLYFILL -->
+	<!-- JS -->
+	<script src="../js/jquery-3.2.1.min.js"></script> <!--JS DO JQUERY -->
+	<script src="../js/material.min.js"></script> <!-- JS DO MATERIAL UI -->
+	<script src="../js/bootstrap.min.js"></script> <!-- JS DO BOOTSTRAP -->
+	<script src="../js/dialog-polyfill.js"></script> <!-- JS DO DIALOG POLYFILL -->
+
+	<style type="text/css">
+		
+	/* ICONES MATERIAL (FONTE) */
+	@font-face {
+	font-family: 'Material Icons';
+		font-style: normal;
+	  	font-weight: 400;
+	 	src: url(../fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+	 	src: local('Material Icons'),
+	    	local('MaterialIcons-Regular'),
+	    	url(../fonts/MaterialIcons-Regular.woff2) format('woff2'),
+	    	url(../fonts/MaterialIcons-Regular.woff) format('woff'),
+	    	url(../fonts/MaterialIcons-Regular.ttf) format('truetype');
+	}
+
+	/* ROBOTO (FONTE) */
+	@font-face {
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		src: url(../fonts/Roboto-Regular.ttf);
+	}
+
+	/* COR DE FUNDO DA PÁGINA */
+	body {
+		background-color: #e9ecef;
+	}
+
+	/* EFEITO DE FADE */
+	html {
+		-webkit-animation: fadeEffect 1s;
+		animation: fadeEffect 1s; /* Fading effect takes 1 second */
+	}
+
+	@-webkit-keyframes fadeEffect {
+	    from {opacity: 0;}
+	    to {opacity: 1;}
+	}
+
+	@keyframes fadeEffect {
+	    from {opacity: 0;}
+	    to {opacity: 1;}
+	}
+
+	</style>
+
+</head>
+<body>
+
+	<!-- ########## MENU COM ABAS FIXAS ########## -->
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+	  	<header class="mdl-layout__header">
+	    	<div class="mdl-layout__header-row">
+	      		<!-- TITULO -->
+	      		<span class="mdl-layout-title">Força Elástica</span>
+	      		<!-- ADICIONA UM ESPAÇAMENTO, PARA ALINHAR A NAVEGAÇÃO A DIREITA -->
+	      		<div class="mdl-layout-spacer"></div>
+	      			<!-- BARRA DE NAVEGAÇÃO HORIZONTAL -->
+	      			<nav class="mdl-navigation mdl-layout--large">
+
+	      				<!-- BOTÃO DO MENU -->
+						<button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+						  	<i class="material-icons">more_vert</i>
+						</button>
+
+						<!-- OPÇÕES DO MENU -->
+						<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+						  	<li><a href="../index.html" class="mdl-menu__item">Página Inicial</a></li>
+						  	<li><a target="_blank" href="https://github.com/nsioficial/ifisica" class="mdl-menu__item">Repositório no Github</a></li>
+						  <li><a id="show-dialog" class="mdl-menu__item">Sobre o iFísica</a></li>
+						</ul>
+
+	      			</nav>
+	   		 </div>
+	    	<!-- ABAS -->
+	    	<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+		    	<a href="#fixed-tab-1" class="mdl-layout__tab is-active">Calcular</a>
+		    	<a href="#fixed-tab-2" class="mdl-layout__tab">Vídeo aula</a>
+		    	<a href="#fixed-tab-3" class="mdl-layout__tab">Informações</a>
+	    	</div>
+	  	</header>
+
+	  	<!-- ########## MENU LATERAL ########## -->
+	  	<div class="mdl-layout__drawer">
+	    	<span class="mdl-layout-title">iFísica</span>
+	    	<nav class="mdl-navigation">
+	      		<a class="mdl-navigation__link" href="peso.html">Força Peso</a>
+	      		<a class="mdl-navigation__link" href="atrito.html">Força de atrito</a>
+	      		<a class="mdl-navigation__link" href="elastica.html">Força elástica</a>
+	      		<a class="mdl-navigation__link" href="centripeta.html">Força centripeta</a>
+	      		<a class="mdl-navigation__link" href="forca.html">Trabalho de uma força</a>
+	    	</nav>
+	 	</div>
+
+	 	<!-- ########## SOBRE O IFISICA ########## -->
+		<dialog class="mdl-dialog">
+			<h4 class="mdl-dialog__title">iFísica</h4>
+		    <div class="mdl-dialog__content">
+		     	<p>
+			       	Um app desenvolvido na feira de ciencias de 2017 do IFTO Campus Palmas, para consultar formulas de física diretamente do seu smartphone, incluindo vídeo-aulas, métodos de resolução e uma calculadora interativa para solução de exercicíos mais complexos.
+		     	</p>
+		      	<hr>
+		      	<small>Projeto desenvolvido por:<br>
+		     		- Henrique Borges <a target="_blank" href="https://henriquehbr.github.io">(Visite o site)</a><br>
+				  	- Angelo Emanuel <a target="_blank" href="https://github.com/angeloecw">(Github)</a><br>
+			  	    - Giordano Bruno <a target="_blank" href="https://github.com/GiordanoBrandao-NSI">(Github)</a></small>
+			</div>
+			<div class="mdl-dialog__actions">
+				<!-- BOTÃO OK -->
+			   	<button type="button" class="mdl-button close">OK</button>
+			</div>
+		</dialog>
+
+		<!-- ########## SOBRE O IFISICA (SCRIPT) ########## -->
+		<script>
+		    var dialog = document.querySelector('dialog');
+		    var btnMostrarDialog = document.querySelector('#show-dialog');
+		    if (! dialog.showModal) {
+		      // ### REGISTRA OS DIALOGS DA PÁGINA USANDO POLYFILL ###
+		      dialogPolyfill.registerDialog(dialog);
+		    }
+		    // QUANDO O BOTÃO FOR CLICADO, A JANELA É ABERTA
+		    btnMostrarDialog.addEventListener('click', function() {
+		      dialog.showModal();
+		    });
+
+		    // BOTÃO PARA FECHAR A JANELA
+		    dialog.querySelector('.close').addEventListener('click', function() {
+		      dialog.close();
+		    });
+		</script>
+
+	 	<!-- CONTEUDO DAS ABAS -->
+	  	<main class="mdl-layout__content">
+	    	<section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+	      		<div class="page-content">
+	      			<!-- CONTEUDO DA ABA CALCULAR -->
+	      		</div>
+	    	</section>
+	    	<section class="mdl-layout__tab-panel" id="fixed-tab-2">
+	      		<div class="page-content">
+	      			<!-- CONTEUDO DA VÍDEO AULA -->
+	      		</div>
+	    	</section>
+	    	<section class="mdl-layout__tab-panel" id="fixed-tab-3">
+	      		<div class="page-content">
+	      			<!-- CONTEUDO DA ABA INFORMAÇÕES -->
+	      		</div>
+	    	</section>
+	  	</main>
+	</div>
+
+</body>
+
+</html>	
