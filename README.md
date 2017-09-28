@@ -7,4 +7,4 @@ Um app desenvolvido na feira de ciencias de 2017 do IFTO Campus Palmas, para con
 ### Creditos
 * Henrique Borges [Visite o site](https://henrique.github.io)
 * Angelo Emanuel [Github](https://github.com/angeloecw)
-* Giordano Bruno
+* Giordano Bruno [Github](https://github.com/GiordanoBrandao-NSI)
