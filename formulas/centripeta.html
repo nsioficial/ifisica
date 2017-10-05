@@ -42,6 +42,11 @@
 		background-color: #e9ecef;
 	}
 
+	/* MARGEM NO CONTEUDO DAS ABAS */
+	.page-content {
+		margin: 16px;
+	}
+
 	/* EFEITO DE FADE */
 	html {
 		-webkit-animation: fadeEffect 1s;
@@ -86,9 +91,49 @@
 						  <li><a id="show-dialog" class="mdl-menu__item">Sobre o iFísica</a></li>
 						</ul>
 
+					<!-- FIM DA BARRA DE NAVEGAÇÃO HORIZONTAL -->
 	      			</nav>
 	   		 </div>
-	    	<!-- ABAS -->
+	   		 
+			<!-- ########## SOBRE O IFISICA ########## -->
+			<dialog class="mdl-dialog">
+				<h4 class="mdl-dialog__title">iFísica</h4>
+		    	<div class="mdl-dialog__content">
+		     		<p>
+			       		Um app desenvolvido na feira de ciencias de 2017 do IFTO Campus Palmas, para consultar formulas de física diretamente do seu smartphone, incluindo vídeo-aulas, métodos de resolução e uma calculadora interativa para solução de exercicíos mais complexos.
+		     		</p>
+		      		<hr>
+		      		<small>Projeto desenvolvido por:<br>
+		     			- Henrique Borges (Programação) - <a target="_blank" href="https://henriquehbr.github.io">Visite o site</a><br>
+				  		- Angelo Emanuel (Programação) - <a target="_blank" href="https://github.com/angeloecw">Github</a><br>
+			  	    	- Giordano Bruno (...) - <a target="_blank" href="https://github.com/GiordanoBrandao-NSI">Github</a></small>
+				</div>
+				<div class="mdl-dialog__actions">
+					<!-- BOTÃO OK -->
+			   		<button type="button" class="mdl-button close">OK</button>
+				</div>
+			</dialog>
+
+			<!-- ########## SOBRE O IFISICA (SCRIPT) ########## -->
+			<script>
+		    	var dialog = document.querySelector('dialog');
+		    	var btnMostrarDialog = document.querySelector('#show-dialog');
+		    	if (! dialog.showModal) {
+		      		// ### REGISTRA OS DIALOGS DA PÁGINA USANDO POLYFILL ###
+		      		dialogPolyfill.registerDialog(dialog);
+		    	}
+		    	// QUANDO O BOTÃO FOR CLICADO, A JANELA É ABERTA
+		    	btnMostrarDialog.addEventListener('click', function() {
+		      		dialog.showModal();
+		    	});
+
+		    	// BOTÃO PARA FECHAR A JANELA
+		    	dialog.querySelector('.close').addEventListener('click', function() {
+		      		dialog.close();
+		    	});
+			</script>
+
+	    	<!-- ########## ABAS FIXAS ########## -->
 	    	<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
 		    	<a href="#fixed-tab-1" class="mdl-layout__tab is-active">Calcular</a>
 		    	<a href="#fixed-tab-2" class="mdl-layout__tab">Vídeo aula</a>
@@ -108,44 +153,6 @@
 	    	</nav>
 	 	</div>
 
-	 	<!-- ########## SOBRE O IFISICA ########## -->
-		<dialog class="mdl-dialog">
-			<h4 class="mdl-dialog__title">iFísica</h4>
-		    <div class="mdl-dialog__content">
-		     	<p>
-			       	Um app desenvolvido na feira de ciencias de 2017 do IFTO Campus Palmas, para consultar formulas de física diretamente do seu smartphone, incluindo vídeo-aulas, métodos de resolução e uma calculadora interativa para solução de exercicíos mais complexos.
-		     	</p>
-		      	<hr>
-		      	<small>Projeto desenvolvido por:<br>
-		     		- Henrique Borges <a target="_blank" href="https://henriquehbr.github.io">(Visite o site)</a><br>
-				  	- Angelo Emanuel <a target="_blank" href="https://github.com/angeloecw">(Github)</a><br>
-			  	    - Giordano Bruno <a target="_blank" href="https://github.com/GiordanoBrandao-NSI">(Github)</a></small>
-			</div>
-			<div class="mdl-dialog__actions">
-				<!-- BOTÃO OK -->
-			   	<button type="button" class="mdl-button close">OK</button>
-			</div>
-		</dialog>
-
-		<!-- ########## SOBRE O IFISICA (SCRIPT) ########## -->
-		<script>
-		    var dialog = document.querySelector('dialog');
-		    var btnMostrarDialog = document.querySelector('#show-dialog');
-		    if (! dialog.showModal) {
-		      // ### REGISTRA OS DIALOGS DA PÁGINA USANDO POLYFILL ###
-		      dialogPolyfill.registerDialog(dialog);
-		    }
-		    // QUANDO O BOTÃO FOR CLICADO, A JANELA É ABERTA
-		    btnMostrarDialog.addEventListener('click', function() {
-		      dialog.showModal();
-		    });
-
-		    // BOTÃO PARA FECHAR A JANELA
-		    dialog.querySelector('.close').addEventListener('click', function() {
-		      dialog.close();
-		    });
-		</script>
-
 	 	<!-- CONTEUDO DAS ABAS -->
 	  	<main class="mdl-layout__content">
 	    	<section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
@@ -160,7 +167,34 @@
 	    	</section>
 	    	<section class="mdl-layout__tab-panel" id="fixed-tab-3">
 	      		<div class="page-content">
-	      			<!-- CONTEUDO DA ABA INFORMAÇÕES -->
+	      			<!-- CONTEÚDO DA ABA INFORMAÇÕES -->
+	      			<h1>Força Centripeta</h1>
+	      			<hr>
+	      			<h4>
+	      				Quando um corpo efetua um Movimento Circular, este sofre uma aceleração que é responsável pela mudança da direção do movimento, a qual chamamos aceleração centrípeta, assim como visto no MCU.<br><br>
+						Sabendo que existe uma aceleração e sendo dada a massa do corpo, podemos, pela 2ª Lei de Newton, calcular uma força que assim como a aceleração centrípeta, aponta para o centro da trajetória circular.<br><br>
+						A esta força damos o nome: Força Centrípeta. Sem ela, um corpo não poderia executar um movimento circular.
+						Como visto anteriormente, quando o movimento for circular uniforme, a aceleração centrípeta é constante, logo, a força centrípeta também é constante. Sabendo que:<br><br>
+						<center><i>Fc = m * v² ÷ r<br>
+						<small>Força centripeta = massa * velocidade² ÷ raio</small></i></center><br>
+	      			</h4>
+	      			<h3>Aceleração Centripeta</h3>
+	      			<hr>
+	      			<h4>
+	      				A aceleração centrípeta ocorre nos corpos que realizam uma trajetória circular ou curvilínea, sendo calculada através da seguinte expressão:<br><br>
+	      				<center><i>Ac = m * v² ÷ r<br>
+						<small>Aceleração centripeta (m/s²) = velocidade² (m/s) ÷ raio (m)</small></i></center><br>
+	      			</h4>
+	      			<h3>Exemplo:</h3>
+	      			<hr>
+	      			<h4>
+	      				Um carro percorre uma curva de raio 100m, com velocidade 20m/s. Sendo a massa do carro 800kg, qual é a intensidade da força centrípeta?<br><br>
+	      				<center><i>Fc = m * v² ÷ r<br>
+	      					Fc = 800 * (20)² ÷ 100<br>
+	      					Fc = 800 * 4<br>
+	      					Fc = 3200N</i></center>
+	      			</h4>
+	      			<!-- FIM DO CONTEÚDO DA ABA INFORMAÇÕES -->
 	      		</div>
 	    	</section>
 	  	</main>
