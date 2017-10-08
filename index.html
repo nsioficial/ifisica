@@ -47,6 +47,14 @@
 		width: 250px;
 	}
 
+	/* LOGOTIPO DA JANELA SOBRE */
+	.logo {
+		width: 64px;
+		height: 64px;
+		margin: 0 16px 0 0;
+	}
+
+	/* COLUNA DOS BOTÕES */
 	.col-xl {
 		padding: 0;
 	}
@@ -113,6 +121,44 @@
 	    		</div>
 	  	</header>
 
+	  	<!-- ########## SOBRE O IFISICA ########## -->
+		<dialog class="mdl-dialog">
+			<h4 class="mdl-dialog__title"><img class="logo" src="img/logo-ifisica.png">iFísica</h4>
+		   	<div class="mdl-dialog__content">
+		   		<p>
+		      		Um app desenvolvido na feira de ciencias de 2017 do IFTO Campus Palmas, para consultar formulas de física diretamente do seu smartphone, incluindo vídeo-aulas, métodos de resolução e uma calculadora interativa para solução de exercicíos mais complexos.
+		     	</p>
+		      	<hr>
+		      	<small>Projeto desenvolvido por:<br>
+		     		- <a target="_blank" href="https://henriquehbr.github.io">Henrique Borges</a> (Programação Geral)<br>
+			 		- <a target="_blank" href="https://github.com/angeloecw">Angelo Emanuel</a> (Programação da calculadora)<br>
+		 	    	- <a target="_blank" href="https://github.com/GiordanoBrandao-NSI">Giordano Bruno</a> (...)</small>
+			</div>
+			<div class="mdl-dialog__actions">
+				<!-- BOTÃO OK -->
+		   		<button type="button" class="mdl-button close">OK</button>
+			</div>
+		</dialog>
+
+		<!-- ########## SOBRE O IFISICA (SCRIPT) ########## -->
+		<script>
+	    	var dialog = document.querySelector('dialog');
+	    	var btnMostrarDialog = document.querySelector('#show-dialog');
+	    	if (! dialog.showModal) {
+	      		// ### REGISTRA OS DIALOGS DA PÁGINA USANDO POLYFILL ###
+	      		dialogPolyfill.registerDialog(dialog);
+	    	}
+	    	// QUANDO O BOTÃO FOR CLICADO, A JANELA É ABERTA
+	    	btnMostrarDialog.addEventListener('click', function() {
+	      		dialog.showModal();
+	    	});
+
+	    	// BOTÃO PARA FECHAR A JANELA
+	    	dialog.querySelector('.close').addEventListener('click', function() {
+	      		dialog.close();
+	    	});
+		</script>
+
 	  	<!-- ########## MENU LATERAL ########## -->
 	  	<div class="mdl-layout__drawer">
 	    	<span class="mdl-layout-title">iFísica</span>
@@ -124,44 +170,6 @@
 	      		<a class="mdl-navigation__link" href="formulas/forca.html">Trabalho de uma força</a>
 	    	</nav>
 	  	</div>
-
-	  	<!-- ########## SOBRE O IFISICA ########## -->
-		<dialog class="mdl-dialog">
-			<h4 class="mdl-dialog__title">iFisica</h4>
-			<div class="mdl-dialog__content">
-				<p>
-					Um app desenvolvido na feira de ciencias de 2017 do IFTO Campus Palmas, para consultar formulas de física diretamente do seu smartphone, incluindo vídeo-aulas, métodos de resolução e uma calculadora interativa para solução de exercicíos mais complexos.
-				</p>
-				<hr>
-				<small>Projeto desenvolvido por:<br>
-					- Henrique Borges <a target="_blank" href="https://henriquehbr.github.io">(Visite o site)</a><br>
-					- Angelo Emanuel <a target="_blank" href="https://github.com/angeloecw">(Github)</a><br>
-					- Giordano Bruno <a target="_blank" href="https://github.com/GiordanoBrandao-NSI">(Github)</a></small>
-			</div>
-			<div class="mdl-dialog__actions">
-				<!-- BOTÃO OK -->
-					<button type="button" class="mdl-button close">OK</button>
-			</div>
-		</dialog>
-
-		<!-- ########## SOBRE O IFISICA (SCRIPT) ########## -->
-		<script>
-			var dialog = document.querySelector('dialog');
-			var btnMostrarDialog = document.querySelector('#show-dialog');
-			if (! dialog.showModal) {
-				// ### REGISTRA OS DIALOGS DA PÁGINA USANDO POLYFILL ###
-				dialogPolyfill.registerDialog(dialog);
-			}
-			// QUANDO O BOTÃO FOR CLICADO, A JANELA É ABERTA
-			btnMostrarDialog.addEventListener('click', function() {
-				dialog.showModal();
-			});
-
-			// BOTÃO PARA FECHAR A JANELA
-			dialog.querySelector('.close').addEventListener('click', function() {
-				dialog.close();
-				});
-		</script>
 
 	  	<main class="mdl-layout__content">
 	  		<!-- ########## CONTEÚDO DA PÁGINA ########## -->

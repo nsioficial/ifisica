@@ -47,6 +47,27 @@
 		margin: 16px;
 	}
 
+	/* LOGOTIPO DA JANELA SOBRE */
+	.logo {
+		width: 64px;
+		height: 64px;
+		margin: 0 16px 0 0;
+	}
+
+	/* AJUSTA O TAMANHO/MARGEM DAS CAIXAS DE TEXTO DA CALCULADORA */
+	.form-control {
+		min-width: 50%;
+		margin-bottom: 5px;
+	}
+
+	/* VIDEOAULA */
+	#video {
+		width: 100%;
+		height: calc(80vh - 144px);
+		background-color: black;
+		margin-bottom: 10px;
+	}
+
 	/* EFEITO DE FADE */
 	html {
 		-webkit-animation: fadeEffect 1s;
@@ -97,16 +118,16 @@
 
 			<!-- ########## SOBRE O IFISICA ########## -->
 			<dialog class="mdl-dialog">
-				<h4 class="mdl-dialog__title">iFísica</h4>
+				<h4 class="mdl-dialog__title"><img class="logo" src="../img/logo-ifisica.png">iFísica</h4>
 		    	<div class="mdl-dialog__content">
 		     		<p>
 			       		Um app desenvolvido na feira de ciencias de 2017 do IFTO Campus Palmas, para consultar formulas de física diretamente do seu smartphone, incluindo vídeo-aulas, métodos de resolução e uma calculadora interativa para solução de exercicíos mais complexos.
 		     		</p>
 		      		<hr>
 		      		<small>Projeto desenvolvido por:<br>
-		     			- Henrique Borges (Programação) - <a target="_blank" href="https://henriquehbr.github.io">Visite o site</a><br>
-				  		- Angelo Emanuel (Programação) - <a target="_blank" href="https://github.com/angeloecw">Github</a><br>
-			  	    	- Giordano Bruno (...) - <a target="_blank" href="https://github.com/GiordanoBrandao-NSI">Github</a></small>
+		     			- <a target="_blank" href="https://henriquehbr.github.io">Henrique Borges</a> (Programação Geral)<br>
+				  		- <a target="_blank" href="https://github.com/angeloecw">Angelo Emanuel</a> (Programação da calculadora)<br>
+			  	    	- <a target="_blank" href="https://github.com/GiordanoBrandao-NSI">Giordano Bruno</a> (...)</small>
 				</div>
 				<div class="mdl-dialog__actions">
 					<!-- BOTÃO OK -->
@@ -158,11 +179,22 @@
 	    	<section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
 	      		<div class="page-content">
 	      			<!-- CONTEUDO DA ABA CALCULAR -->
+	      			<h1>Calcular Força de Atrito<br>
+	      			<small id="resposta">Resultado:</small></h1>
+					<input onkeyup="forcaAtrito()" id="valoratrito" class="form-control" type="number" placeholder="Coeficiente de atrito">
+					<input onkeyup="forcaAtrito()" id="valornormal" class="form-control" type="number" placeholder="Força normal"><br>
+	      			<!-- FIM DO CONTEUDO DA ABA CALCULAR -->
 	      		</div>
 	    	</section>
 	    	<section class="mdl-layout__tab-panel" id="fixed-tab-2">
 	      		<div class="page-content">
 	      			<!-- CONTEUDO DA VÍDEO AULA -->
+	      			<div id="video">
+	      				<!-- ##### VIDEO ##### -->
+	      			</div>
+	      			<h2>Vídeo-aula de Força de Atrito</h2>
+	      			<h5>A vídeo-aula a seguir apresenta todas as formulas e os conceitos da força de atrito.</h5>
+	      			<!-- FIM DO CONTEUDO DA VÍDEO AULA -->
 	      		</div>
 	    	</section>
 	    	<section class="mdl-layout__tab-panel" id="fixed-tab-3">
@@ -214,5 +246,17 @@
 	</div>
 
 </body>
+
+<script type="text/javascript">
+	function forcaAtrito() {
+		var valorAtrito = document.getElementById('valoratrito').value; // VALOR DO COEFICIENTE ATRITO
+		var valorNormal = document.getElementById('valornormal').value; // VALOR DA FORÇA NORMAL
+		var resposta = document.getElementById('resposta'); // TEXTO QUE MOSTRA A RESPOSTA
+		var calcularResposta = parseFloat(valorAtrito) * parseFloat(valorNormal); // CALCULAR RESPOSTA
+		if (valorAtrito > 0 && valorNormal > 0) {
+			resposta.innerHTML = "Resultado: " + calcularResposta;
+		}
+	}
+</script>
 
 </html>	

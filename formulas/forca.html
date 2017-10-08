@@ -48,6 +48,32 @@
 		animation: fadeEffect 1s; /* Fading effect takes 1 second */
 	}
 
+	/* MARGEM NO CONTEUDO DAS ABAS */
+	.page-content {
+		margin: 16px;
+	}
+
+	/* LOGOTIPO DA JANELA SOBRE */
+	.logo {
+		width: 64px;
+		height: 64px;
+		margin: 0 16px 0 0;
+	}
+
+	/* AJUSTA O TAMANHO/MARGEM DAS CAIXAS DE TEXTO DA CALCULADORA */
+	.form-control {
+		min-width: 50%;
+		margin-bottom: 5px;
+	}
+
+	/* VIDEOAULA */
+	#video {
+		width: 100%;
+		height: calc(80vh - 144px);
+		background-color: black;
+		margin-bottom: 10px;
+	}
+
 	@-webkit-keyframes fadeEffect {
 	    from {opacity: 0;}
 	    to {opacity: 1;}
@@ -92,16 +118,16 @@
 
 			<!-- ########## SOBRE O IFISICA ########## -->
 			<dialog class="mdl-dialog">
-				<h4 class="mdl-dialog__title">iFísica</h4>
+				<h4 class="mdl-dialog__title"><img class="logo" src="../img/logo-ifisica.png">iFísica</h4>
 		    	<div class="mdl-dialog__content">
 		     		<p>
 			       		Um app desenvolvido na feira de ciencias de 2017 do IFTO Campus Palmas, para consultar formulas de física diretamente do seu smartphone, incluindo vídeo-aulas, métodos de resolução e uma calculadora interativa para solução de exercicíos mais complexos.
 		     		</p>
 		      		<hr>
 		      		<small>Projeto desenvolvido por:<br>
-		     			- Henrique Borges (Programação) - <a target="_blank" href="https://henriquehbr.github.io">Visite o site</a><br>
-				  		- Angelo Emanuel (Programação) - <a target="_blank" href="https://github.com/angeloecw">Github</a><br>
-			  	    	- Giordano Bruno (...) - <a target="_blank" href="https://github.com/GiordanoBrandao-NSI">Github</a></small>
+		     			- <a target="_blank" href="https://henriquehbr.github.io">Henrique Borges</a> (Programação Geral)<br>
+				  		- <a target="_blank" href="https://github.com/angeloecw">Angelo Emanuel</a> (Programação da calculadora)<br>
+			  	    	- <a target="_blank" href="https://github.com/GiordanoBrandao-NSI">Giordano Bruno</a> (...)</small>
 				</div>
 				<div class="mdl-dialog__actions">
 					<!-- BOTÃO OK -->
@@ -153,21 +179,72 @@
 	    	<section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
 	      		<div class="page-content">
 	      			<!-- CONTEUDO DA ABA CALCULAR -->
+	      			<h1>Calcular Força paralela ao deslocamento<br>
+	      			<small id="resposta">Resultado:</small></h1>
+					<input onkeyup="trabalhoForca()" id="valorforca" class="form-control" type="number" placeholder="Força">
+					<input onkeyup="trabalhoForca()" id="valordeslocamento" class="form-control" type="number" placeholder="Vetor deslocamento"><br>
+	      			<!-- FIM DO CONTEUDO DA ABA CALCULAR -->
 	      		</div>
 	    	</section>
 	    	<section class="mdl-layout__tab-panel" id="fixed-tab-2">
 	      		<div class="page-content">
 	      			<!-- CONTEUDO DA VÍDEO AULA -->
+	      			<div id="video">
+	      				<!-- ##### VIDEO ##### -->
+	      			</div>
+	      			<h2>Vídeo-aula de Trabalho de uma Força</h2>
+	      			<h5>A vídeo-aula a seguir apresenta todas as formulas e os conceitos do Trabalho de uma Força.</h5>
+	      			<!-- FIM DO CONTEUDO DA VÍDEO AULA -->
 	      		</div>
 	    	</section>
 	    	<section class="mdl-layout__tab-panel" id="fixed-tab-3">
 	      		<div class="page-content">
 	      			<!-- CONTEUDO DA ABA INFORMAÇÕES -->
+	      			<h1>Trabalho de uma Força</h1>
+	      			<hr>
+	      			<h4>
+	      				Na Física, o termo trabalho é utilizado quando falamos no Trabalho realizado por uma força, ou seja, o Trabalho Mecânico. Uma força aplicada em um corpo realiza um trabalho quando produz um deslocamento no corpo.<br><br>	
+						Utilizamos a letra grega tau minúscula (τ) para expressar trabalho.<br><br>
+						A unidade de Trabalho no SI é o Joule (J)<br><br>
+						Quando uma força tem a mesma direção do movimento o trabalho realizado é positivo: > 0, quando a direção da força é oposta ao movimento, o trabalho realizado é negativo: < 0.<br><br>
+						O trabalho resultante é obtido através da soma dos trabalhos de cada força aplicada ao corpo, ou pelo cálculo da força resultante no corpo.<br><br>
+						<center><i>τr = τ1 + τ2 + τ3 + ... + τn<br>
+						<small>Trabalho de uma força = trabalho 1 + trabalho 2 + trabalho 3 + ... + força normal</small></i></center><br>
+	      			</h4>
+	      			<h3>Força paralela ao deslocamento</h1>
+	      			<hr>
+	      			<h4>
+	      				Quando a força é paralela ao deslocamento, ou seja, o vetor deslocamento e a força não formam ângulo entre si, calculamos o trabalho:<br><br>
+	      				<center><i>τ = F * Δs<br>
+						<small>Trabalho de uma força = Força * vetor deslocamento</small></i></center><br>
+	      			</h4>
+	      			<h3>Exemplo:</h3>
+	      			<hr>
+	      			<h4>
+	      				Qual o trabalho realizado por um força aplicada a um corpo de massa 5kg e que causa um aceleração de 1,5m/s² e se desloca por uma distância de 100m?<br><br>
+	      				<center><i>τ = F * Δs<br>
+	      						τ = m * a * Δs<br>
+	      						τ = 5 * 1,5 * 100<br>
+	      						τ = 750J <small>(Joules)</small></i></center>
+	      			</h4>
+	      			<!-- FIM DO CONTEUDO DA ABA INFORMAÇÕES -->
 	      		</div>
 	    	</section>
 	  	</main>
 	</div>
 
 </body>
+
+<script type="text/javascript">
+	function trabalhoForca() {
+		var valorForca = document.getElementById('valorforca').value; // VALOR DA FORÇA
+		var valorDeslocamento = document.getElementById('valordeslocamento').value; // VALOR DO DESLOCAMENTO
+		var resposta = document.getElementById('resposta'); // TEXTO QUE MOSTRA A RESPOSTA
+		var calcularResposta = parseFloat(valorForca) * parseFloat(valorDeslocamento); // CALCULAR RESPOSTA
+		if (valorForca > 0 && valorDeslocamento > 0) {
+			resposta.innerHTML = "Resultado: " + calcularResposta;
+		}
+	}
+</script>
 
 </html>	
