@@ -1,0 +1,33 @@
+CACHE MANIFEST
+# 08/10/2017 20:00
+# ARQUIVO DE CACHE (ARMAZENAMENTO) OFFLINE
+index.html
+# CSS
+css/bootstrap.min.css
+css/dialog-polyfill.css
+css/material.min.css
+css/pace-theme-flash.css
+# FONTES
+fonts/MaterialIcons-Regular.eot
+fonts/MaterialIcons-Regular.ttf
+fonts/MaterialIcons-Regular.woff
+fonts/MaterialIcons-Regular.woff2
+fonts/Roboto-Regular.ttf
+# FORMULAS
+formulas/atrito.html
+formulas/centripeta.html
+formulas/elastica.html
+formulas/forca.html
+formulas/peso.html
+# IMAGENS
+img/icone-atrito.png
+img/icone-centripeta.png
+img/icone-elastico.png
+img/icone-peso.png
+img/logo-ifisica.png
+# JS
+js/bootstrap.min.js
+js/dialog-polyfill.js
+js/jquery-3.2.1.min.js
+js/material.min.js
+js/pace.min.js
