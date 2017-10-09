@@ -190,17 +190,17 @@
 					// IDLE (PARADO) == 1
 					case appCache.IDLE:
 					    alertaCache.setAttribute('class', 'alert alert-success');
-					    alertaCache.innerHTML = "Visualização offline funcionando!" + "<a href='javascript:appCache.update();' class='alert-link'>Reativar</a>";
+					    alertaCache.innerHTML = "Visualização offline funcionando! " + "<a href='javascript:appCache.update();' class='alert-link'>Recarregar</a>";
 					    break;
 					// CHECKING (CHECANDO) == 2
 					case appCache.CHECKING:
 					    alertaCache.setAttribute('class', 'alert alert-info');
-					    alertaCache.innerHTML = "Buscando atualizações... ";
+					    alertaCache.innerHTML = "Buscando atualizações...";
 					    break;
 					// DOWNLOADING (BAIXANDO) == 3
 					case appCache.DOWNLOADING:
 					    alertaCache.setAttribute('class', 'alert alert-primary');
-					    alertaCache.innerHTML = "Ativando visualização offline... ";
+					    alertaCache.innerHTML = "Ativando visualização offline...";
 					    break;
 					// UPDATEREADY (ATUALIZAÇÃO DISPONIVEL) == 4
 					case appCache.UPDATEREADY:
@@ -214,7 +214,7 @@
 					    break;
 					default:
 					    alertaCache.setAttribute('class', 'alert alert-dark');
-					    alertaCache.innerHTML = "Erro desconhecido!. " + "<a href='javascript:appCache.update();' class='alert-link'></a>";
+					    alertaCache.innerHTML = "Erro desconhecido! " + "<a href='javascript:appCache.update();' class='alert-link'>Recarregar</a>";
 					    break;
 				};
 	    	});
