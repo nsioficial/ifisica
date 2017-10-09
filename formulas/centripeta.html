@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="ifisica.appcache">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- AJUSTAR A PÁGINA A DIFERENTES TAMANHOS DE TELA -->
@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="../css/dialog-polyfill.css"> <!-- CSS DO DIALOG POLYFILL -->
 	<link rel="stylesheet" href="../css/pace-theme-flash.css"> <!-- CSS DO PACE -->
 	<!-- JS -->
-	<script src="../js/jquery-3.2.1.min.js"></script> <!--JS DO JQUERY -->
+	<script src="../js/jquery-3.2.1.min.js"></script> <!-- JS DO JQUERY -->
 	<script src="../js/material.min.js"></script> <!-- JS DO MATERIAL UI -->
 	<script src="../js/bootstrap.min.js"></script> <!-- JS DO BOOTSTRAP -->
 	<script src="../js/dialog-polyfill.js"></script> <!-- JS DO DIALOG POLYFILL -->
@@ -23,7 +23,7 @@
 	font-family: 'Material Icons';
 		font-style: normal;
 	  	font-weight: 400;
-	 	src: url(../fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+	 	src: url(../fonts/MaterialIcons-Regular.eot); /* IE6-8 */
 	 	src: local('Material Icons'),
 	    	local('MaterialIcons-Regular'),
 	    	url(../fonts/MaterialIcons-Regular.woff2) format('woff2'),
@@ -60,6 +60,16 @@
 	.form-control {
 		min-width: 50%;
 		margin-bottom: 5px;
+	}
+
+	/* AJUSTA AS MARGENS DOS ALERTAS (BOOTSTRAP) */
+	.alert {
+		margin: 16px 0 0 0;
+	}
+
+	/* TEXTO "ATIVAR" NO ALERTA (BOOTSTRAP) */
+	.alert-link:hover {
+		text-decoration: underline;
 	}
 
 	/* VIDEOAULA */
@@ -121,15 +131,18 @@
 			<!-- ########## SOBRE O IFISICA ########## -->
 			<dialog class="mdl-dialog">
 				<h4 class="mdl-dialog__title"><img class="logo" src="../img/logo-ifisica.png">iFísica</h4>
-		    	<div class="mdl-dialog__content">
-		     		<p>
-			       		Um app desenvolvido na feira de ciencias de 2017 do IFTO Campus Palmas, para consultar formulas de física diretamente do seu smartphone, incluindo vídeo-aulas, métodos de resolução e uma calculadora interativa para solução de exercicíos mais complexos.
-		     		</p>
-		      		<hr>
-		      		<small>Projeto desenvolvido por:<br>
-		     			- <a target="_blank" href="https://henriquehbr.github.io">Henrique Borges</a> (Programação Geral)<br>
-				  		- <a target="_blank" href="https://github.com/angeloecw">Angelo Emanuel</a> (Programação da calculadora)<br>
-			  	    	- <a target="_blank" href="https://github.com/GiordanoBrandao-NSI">Giordano Bruno</a> (...)</small>
+				<div id="alertaCache" class="alert alert-success" role="alert">
+				  	...
+				</div>
+			   	<div class="mdl-dialog__content">
+			   		<p>
+			      		Um app desenvolvido na feira de ciencias de 2017 do IFTO Campus Palmas, para consultar formulas de física diretamente do seu smartphone, incluindo vídeo-aulas, métodos de resolução e uma calculadora interativa para solução de exercicíos mais complexos.
+			     	</p>
+			      	<hr>
+			      	<small>Projeto desenvolvido por:<br>
+			     		- <a target="_blank" href="https://henriquehbr.github.io">Henrique Borges</a> (Programação Geral)<br>
+				 		- <a target="_blank" href="https://github.com/angeloecw">Angelo Emanuel</a> (Programação da calculadora)<br>
+			 	    	- <a target="_blank" href="https://github.com/GiordanoBrandao-NSI">Giordano Bruno</a> (...)</small>
 				</div>
 				<div class="mdl-dialog__actions">
 					<!-- BOTÃO OK -->
@@ -141,13 +154,52 @@
 			<script>
 		    	var dialog = document.querySelector('dialog');
 		    	var btnMostrarDialog = document.querySelector('#show-dialog');
+		    	var alertaCache = document.getElementById('alertaCache');
+		    	var appCache = window.applicationCache;
 		    	if (! dialog.showModal) {
-		      		// ### REGISTRA OS DIALOGS DA PÁGINA USANDO POLYFILL ###
+		      		// ##### REGISTRA OS DIALOGS DA PÁGINA USANDO POLYFILL #####
 		      		dialogPolyfill.registerDialog(dialog);
 		    	}
 		    	// QUANDO O BOTÃO FOR CLICADO, A JANELA É ABERTA
 		    	btnMostrarDialog.addEventListener('click', function() {
 		      		dialog.showModal();
+		      		// ########## ANALISA O ESTADO DO CACHE DO SITE ##########
+		      		switch (appCache.status) {
+		      			// UNCACHED (SEM CACHE) == 0
+						case appCache.UNCACHED:
+						  	alertaCache.setAttribute('class', 'alert alert-danger');
+						    alertaCache.innerHTML = "Visualização offline desativada. " + "<a href='javascript:appCache.update();' class='alert-link'>Ativar</a>";
+						    break;
+						// IDLE (PARADO) == 1
+						case appCache.IDLE:
+						    alertaCache.setAttribute('class', 'alert alert-success');
+						    alertaCache.innerHTML = "Visualização offline funcionando!" + "<a href='javascript:appCache.update();' class='alert-link'>Reativar</a>";
+						    break;
+						// CHECKING (CHECANDO) == 2
+						case appCache.CHECKING:
+						    alertaCache.setAttribute('class', 'alert alert-info');
+						    alertaCache.innerHTML = "Buscando atualizações... ";
+						    break;
+						// DOWNLOADING (BAIXANDO) == 3
+						case appCache.DOWNLOADING:
+						    alertaCache.setAttribute('class', 'alert alert-primary');
+						    alertaCache.innerHTML = "Ativando visualização offline... ";
+						    break;
+						// UPDATEREADY (ATUALIZAÇÃO DISPONIVEL) == 4
+						case appCache.UPDATEREADY:
+						    alertaCache.setAttribute('class', 'alert alert-warning');
+						    alertaCache.innerHTML = "Atualização da visualização offline disponível! " + "<a href='javascript:appCache.update();' class='alert-link'>Atualizar</a>";
+						    break;
+						// OBSOLETE (OBSOLETO) == 5
+						case appCache.OBSOLETE:
+						    alertaCache.setAttribute('class', 'alert alert-dark');
+						    alertaCache.innerHTML = "Visualização offline obsoleta. " + "<a href='javascript:appCache.update();' class='alert-link'>Atualizar</a>";
+						    break;
+						default:
+						    alertaCache.setAttribute('class', 'alert alert-dark');
+						    alertaCache.innerHTML = "Erro desconhecido!. " + "<a href='javascript:appCache.update();' class='alert-link'></a>";
+						    break;
+					};
 		    	});
 
 		    	// BOTÃO PARA FECHAR A JANELA

@@ -23,7 +23,7 @@
 	font-family: 'Material Icons';
 		font-style: normal;
 	  	font-weight: 400;
-	 	src: url(fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+	 	src: url(fonts/MaterialIcons-Regular.eot); /* IE6-8 */
 	 	src: local('Material Icons'),
 	    	local('MaterialIcons-Regular'),
 	    	url(fonts/MaterialIcons-Regular.woff2) format('woff2'),
@@ -184,36 +184,37 @@
 	      		switch (appCache.status) {
 	      			// UNCACHED (SEM CACHE) == 0
 					case appCache.UNCACHED:
-					  	alertaCache.setAttribute('class', 'alert alert-dark');
+					  	alertaCache.setAttribute('class', 'alert alert-danger');
 					    alertaCache.innerHTML = "Visualização offline desativada. " + "<a href='javascript:appCache.update();' class='alert-link'>Ativar</a>";
 					    break;
 					// IDLE (PARADO) == 1
 					case appCache.IDLE:
-					    alertaCache.setAttribute('class', 'alert alert-light');
-					    alertaCache.innerHTML = "Transferência do cache parada..." + "<a href='javascript:appCache.update();' class='alert-link'>Reativar</a>";
+					    alertaCache.setAttribute('class', 'alert alert-success');
+					    alertaCache.innerHTML = "Visualização offline funcionando!" + "<a href='javascript:appCache.update();' class='alert-link'>Reativar</a>";
 					    break;
 					// CHECKING (CHECANDO) == 2
 					case appCache.CHECKING:
 					    alertaCache.setAttribute('class', 'alert alert-info');
-					    alertaCache.innerHTML = "Buscando atualizações... " + "<a class='alert-link'></a>";
+					    alertaCache.innerHTML = "Buscando atualizações... ";
 					    break;
 					// DOWNLOADING (BAIXANDO) == 3
 					case appCache.DOWNLOADING:
-					    alertaCache.setAttribute('class', 'alert alert-success');
-					    alertaCache.innerHTML = "Ativando visualização offline... " + "<a class='alert-link'></a>";
+					    alertaCache.setAttribute('class', 'alert alert-primary');
+					    alertaCache.innerHTML = "Ativando visualização offline... ";
 					    break;
 					// UPDATEREADY (ATUALIZAÇÃO DISPONIVEL) == 4
 					case appCache.UPDATEREADY:
-					    alertaCache.setAttribute('class', 'alert alert-primary');
+					    alertaCache.setAttribute('class', 'alert alert-warning');
 					    alertaCache.innerHTML = "Atualização da visualização offline disponível! " + "<a href='javascript:appCache.update();' class='alert-link'>Atualizar</a>";
 					    break;
 					// OBSOLETE (OBSOLETO) == 5
 					case appCache.OBSOLETE:
-					    alertaCache.setAttribute('class', 'alert alert-warning');
+					    alertaCache.setAttribute('class', 'alert alert-dark');
 					    alertaCache.innerHTML = "Visualização offline obsoleta. " + "<a href='javascript:appCache.update();' class='alert-link'>Atualizar</a>";
 					    break;
 					default:
-					    alert('DESCONHECIDO!');
+					    alertaCache.setAttribute('class', 'alert alert-dark');
+					    alertaCache.innerHTML = "Erro desconhecido!. " + "<a href='javascript:appCache.update();' class='alert-link'></a>";
 					    break;
 				};
 	    	});
