@@ -7,4 +7,5 @@ Um app desenvolvido na feira de ciencias de 2017 do IFTO Campus Palmas, para con
 * [Angelo Emanuel (Programador)](https://github.com/angeloecw)
 * [Giordano Bruno (Programador)](https://github.com/GiordanoBrandao-NSI)
 * [Alexander Justus (Produtor das vídeo-aulas)](https://google.com)
-* [Luis Felipe (Produtor das vídeo-aulas)](https:/google.com)
+* [Luiz Philip (Produtor das vídeo-aulas)](https://github.com/luizcg)
+* [Marcelo Douglas (Produtor das vídeos-aulas)](https://github.com/Marcelo-Douglas-NSI)
