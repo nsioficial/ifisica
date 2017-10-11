@@ -205,7 +205,7 @@
 					// UPDATEREADY (ATUALIZAÇÃO DISPONIVEL) == 4
 					case appCache.UPDATEREADY:
 					    alertaCache.setAttribute('class', 'alert alert-warning');
-					    alertaCache.innerHTML = "Atualização da visualização offline disponível! " + "<a href='javascript:appCache.update();' class='alert-link'>Atualizar</a>";
+					    alertaCache.innerHTML = "Atualização da visualização offline disponível! " + "<a href='javascript:appCache.swapCache();' class='alert-link'>Atualizar</a>";
 					    break;
 					// OBSOLETE (OBSOLETO) == 5
 					case appCache.OBSOLETE:

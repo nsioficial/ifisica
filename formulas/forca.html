@@ -151,62 +151,62 @@
 			</dialog>
 
 			<!-- ########## SOBRE O IFISICA (SCRIPT) ########## -->
-			<script>
-		    	var dialog = document.querySelector('dialog');
-		    	var btnMostrarDialog = document.querySelector('#show-dialog');
-		    	var alertaCache = document.getElementById('alertaCache');
-		    	var appCache = window.applicationCache;
-		    	if (! dialog.showModal) {
-		      		// ##### REGISTRA OS DIALOGS DA PÁGINA USANDO POLYFILL #####
-		      		dialogPolyfill.registerDialog(dialog);
-		    	}
-		    	// QUANDO O BOTÃO FOR CLICADO, A JANELA É ABERTA
-		    	btnMostrarDialog.addEventListener('click', function() {
-		      		dialog.showModal();
-		      		// ########## ANALISA O ESTADO DO CACHE DO SITE ##########
-		      		switch (appCache.status) {
-		      			// UNCACHED (SEM CACHE) == 0
-						case appCache.UNCACHED:
-						  	alertaCache.setAttribute('class', 'alert alert-danger');
-						    alertaCache.innerHTML = "Visualização offline desativada. " + "<a href='javascript:appCache.update();' class='alert-link'>Ativar</a>";
-						    break;
-						// IDLE (PARADO) == 1
-						case appCache.IDLE:
-						    alertaCache.setAttribute('class', 'alert alert-success');
-						    alertaCache.innerHTML = "Visualização offline funcionando!" + "<a href='javascript:appCache.update();' class='alert-link'>Reativar</a>";
-						    break;
-						// CHECKING (CHECANDO) == 2
-						case appCache.CHECKING:
-						    alertaCache.setAttribute('class', 'alert alert-info');
-						    alertaCache.innerHTML = "Buscando atualizações... ";
-						    break;
-						// DOWNLOADING (BAIXANDO) == 3
-						case appCache.DOWNLOADING:
-						    alertaCache.setAttribute('class', 'alert alert-primary');
-						    alertaCache.innerHTML = "Ativando visualização offline... ";
-						    break;
-						// UPDATEREADY (ATUALIZAÇÃO DISPONIVEL) == 4
-						case appCache.UPDATEREADY:
-						    alertaCache.setAttribute('class', 'alert alert-warning');
-						    alertaCache.innerHTML = "Atualização da visualização offline disponível! " + "<a href='javascript:appCache.update();' class='alert-link'>Atualizar</a>";
-						    break;
-						// OBSOLETE (OBSOLETO) == 5
-						case appCache.OBSOLETE:
-						    alertaCache.setAttribute('class', 'alert alert-dark');
-						    alertaCache.innerHTML = "Visualização offline obsoleta. " + "<a href='javascript:appCache.update();' class='alert-link'>Atualizar</a>";
-						    break;
-						default:
-						    alertaCache.setAttribute('class', 'alert alert-dark');
-						    alertaCache.innerHTML = "Erro desconhecido!. " + "<a href='javascript:appCache.update();' class='alert-link'></a>";
-						    break;
-					};
-		    	});
+		<script>
+	    	var dialog = document.querySelector('dialog');
+	    	var btnMostrarDialog = document.querySelector('#show-dialog');
+	    	var alertaCache = document.getElementById('alertaCache');
+	    	var appCache = window.applicationCache;
+	    	if (! dialog.showModal) {
+	      		// ##### REGISTRA OS DIALOGS DA PÁGINA USANDO POLYFILL #####
+	      		dialogPolyfill.registerDialog(dialog);
+	    	}
+	    	// QUANDO O BOTÃO FOR CLICADO, A JANELA É ABERTA
+	    	btnMostrarDialog.addEventListener('click', function() {
+	      		dialog.showModal();
+	      		// ########## ANALISA O ESTADO DO CACHE DO SITE ##########
+	      		switch (appCache.status) {
+	      			// UNCACHED (SEM CACHE) == 0
+					case appCache.UNCACHED:
+					  	alertaCache.setAttribute('class', 'alert alert-danger');
+					    alertaCache.innerHTML = "Visualização offline desativada. " + "<a href='javascript:appCache.update();' class='alert-link'>Ativar</a>";
+					    break;
+					// IDLE (PARADO) == 1
+					case appCache.IDLE:
+					    alertaCache.setAttribute('class', 'alert alert-success');
+					    alertaCache.innerHTML = "Visualização offline funcionando! " + "<a href='javascript:appCache.update();' class='alert-link'>Recarregar</a>";
+					    break;
+					// CHECKING (CHECANDO) == 2
+					case appCache.CHECKING:
+					    alertaCache.setAttribute('class', 'alert alert-info');
+					    alertaCache.innerHTML = "Buscando atualizações...";
+					    break;
+					// DOWNLOADING (BAIXANDO) == 3
+					case appCache.DOWNLOADING:
+					    alertaCache.setAttribute('class', 'alert alert-primary');
+					    alertaCache.innerHTML = "Ativando visualização offline...";
+					    break;
+					// UPDATEREADY (ATUALIZAÇÃO DISPONIVEL) == 4
+					case appCache.UPDATEREADY:
+					    alertaCache.setAttribute('class', 'alert alert-warning');
+					    alertaCache.innerHTML = "Atualização da visualização offline disponível! " + "<a href='javascript:appCache.swapCache();' class='alert-link'>Atualizar</a>";
+					    break;
+					// OBSOLETE (OBSOLETO) == 5
+					case appCache.OBSOLETE:
+					    alertaCache.setAttribute('class', 'alert alert-dark');
+					    alertaCache.innerHTML = "Visualização offline obsoleta. " + "<a href='javascript:appCache.update();' class='alert-link'>Atualizar</a>";
+					    break;
+					default:
+					    alertaCache.setAttribute('class', 'alert alert-dark');
+					    alertaCache.innerHTML = "Erro desconhecido! " + "<a href='javascript:appCache.update();' class='alert-link'>Recarregar</a>";
+					    break;
+				};
+	    	});
 
-		    	// BOTÃO PARA FECHAR A JANELA
-		    	dialog.querySelector('.close').addEventListener('click', function() {
-		      		dialog.close();
-		    	});
-			</script>
+	    	// BOTÃO PARA FECHAR A JANELA
+	    	dialog.querySelector('.close').addEventListener('click', function() {
+	      		dialog.close();
+	    	});
+		</script>
 
 	    	<!-- ########## ABAS FIXAS ########## -->
 	    	<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
