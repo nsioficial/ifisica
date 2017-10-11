@@ -3,9 +3,10 @@
 Um app desenvolvido na feira de ciencias de 2017 do IFTO Campus Palmas, para consultar formulas de física diretamente do seu smartphone, incluindo vídeo-aulas, métodos de resolução e uma calculadora interativa para solução de exercicíos mais complexos.
 
 ### Creditos
-* [Henrique Borges (Programador)](https://henrique.github.io)
-* [Angelo Emanuel (Programador)](https://github.com/angeloecw)
-* [Giordano Bruno (Programador)](https://github.com/GiordanoBrandao-NSI)
-* [Alexander Justus (Produtor das vídeo-aulas)](https://google.com)
-* [Luiz Philip (Produtor das vídeo-aulas)](https://github.com/luizcg)
-* [Marcelo Douglas (Produtor das vídeos-aulas)](https://github.com/Marcelo-Douglas-NSI)
+* [Thiago Guimarães Tavares](htpps://github.com/thiagogmta)
+* [Henrique Borges (Programador Geral)](https://henrique.github.io)
+* [Angelo Emanuel (Programador em Javascript)](https://github.com/angeloecw)
+* [Giordano Bruno (Programador em Javascript)](https://github.com/GiordanoBrandao-NSI)
+* [Alexander Justo (Produtor geral)](https://github.com/AlexssanderJusto)
+* [Luiz Philip (Produtor das vídeos-aulas)](https://github.com/Luiz-Philip)
+* [Marcelo Douglas (Editor)](https://github.com/Marcelo-Douglas-NSI)
